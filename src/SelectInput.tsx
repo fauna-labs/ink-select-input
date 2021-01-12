@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {useState, useEffect, useRef, useCallback} from 'react';
-import type {FC} from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import type { FC } from 'react';
 import isEqual = require('lodash.isequal');
 import arrayRotate = require('arr-rotate');
-import {Box, useInput} from 'ink';
+import { Box, useInput } from 'ink';
 import Indicator from './Indicator';
-import type {Props as IndicatorProps} from './Indicator';
+import type { Props as IndicatorProps } from './Indicator';
 import Item from './Item';
-import type {Props as ItemProps} from './Item';
+import type { Props as ItemProps } from './Item';
 
 interface Props<V> {
 	/**
@@ -59,7 +59,9 @@ interface Props<V> {
 export interface Item<V> {
 	key?: string;
 	label: string;
+	color?: string;
 	value: V;
+	description: string;
 }
 
 // eslint-disable-next-line react/function-component-definition
@@ -115,7 +117,8 @@ function SelectInput<V>({
 						: items;
 
 					if (typeof onHighlight === 'function') {
-						onHighlight(slicedItems[nextSelectedIndex]);
+						const selection: any = slicedItems[nextSelectedIndex]
+						onHighlight(selection);
 					}
 				}
 
@@ -134,7 +137,8 @@ function SelectInput<V>({
 						: items;
 
 					if (typeof onHighlight === 'function') {
-						onHighlight(slicedItems[nextSelectedIndex]);
+						const selection: any = slicedItems[nextSelectedIndex]
+						onHighlight(selection);
 					}
 				}
 
@@ -144,7 +148,8 @@ function SelectInput<V>({
 						: items;
 
 					if (typeof onSelect === 'function') {
-						onSelect(slicedItems[selectedIndex]);
+						const selection: any = slicedItems[selectedIndex]
+						onSelect(selection);
 					}
 				}
 			},
@@ -158,7 +163,7 @@ function SelectInput<V>({
 				onHighlight
 			]
 		),
-		{isActive: isFocused}
+		{ isActive: isFocused }
 	);
 
 	const slicedItems = hasLimit
@@ -172,8 +177,8 @@ function SelectInput<V>({
 
 				return (
 					<Box key={item.key ?? item.value}>
-						{React.createElement(indicatorComponent, {isSelected})}
-						{React.createElement(itemComponent, {...item, isSelected})}
+						{React.createElement(indicatorComponent, { isSelected })}
+						{React.createElement(itemComponent, { ...item, isSelected })}
 					</Box>
 				);
 			})}

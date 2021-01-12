@@ -1,14 +1,22 @@
 import * as React from 'react';
-import type {FC} from 'react';
-import {Text} from 'ink';
+import type { FC } from 'react';
+import { Text, Box } from 'ink';
 
 export interface Props {
 	isSelected?: boolean;
 	label: string;
+	color?: string;
+	description: string;
 }
 
-const Item: FC<Props> = ({isSelected = false, label}) => (
-	<Text color={isSelected ? 'blue' : undefined}>{label}</Text>
+const Item: FC<Props> = ({ isSelected = false, label, color, description }) => (
+	<Box width={100}>
+		<Box width={10}>
+			<Text color={isSelected ? color : undefined}>{label} </Text>
+		</Box>
+		<Text> {isSelected ? description : ""}</Text>
+	</Box>
+
 );
 
 export default Item;

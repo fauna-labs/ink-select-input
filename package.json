@@ -17,7 +17,7 @@
 		"pretest": "tsc",
 		"test": "xo && ava",
 		"build": "tsc",
-		"prepare": "tsc"
+		"prepare": "install-peers && tsc"
 	},
 	"files": [
 		"build"
@@ -51,6 +51,7 @@
 		"eslint-plugin-react-hooks": "^4.0.4",
 		"ink": "^3.0.5",
 		"ink-testing-library": "^2.0.0",
+		"install-peers-cli": "^2.2.0",
 		"prettier": "^2.0.5",
 		"react": "^16.8.2",
 		"sinon": "^7.2.7",
