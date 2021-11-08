@@ -1,8 +1,8 @@
 {
-	"name": "ink-select-input",
-	"version": "4.2.1",
+	"name": "@fauna-labs/ink-select-input",
+	"version": "4.3.0",
 	"description": "Select input component for Ink",
-	"license": "MIT",
+	"license": "MIT-0",
 	"repository": "vadimdemedes/ink-select-input",
 	"author": {
 		"name": "Vadim Demedes",
@@ -53,7 +53,7 @@
 		"ink-testing-library": "^2.0.0",
 		"install-peers-cli": "^2.2.0",
 		"prettier": "^2.0.5",
-		"react": "^16.8.2",
+		"react": ">=16.8.2",
 		"sinon": "^7.2.7",
 		"typescript": "^3.9.7",
 		"xo": "^0.32.0"
